@@ -1,6 +1,6 @@
 # Student Management System
 """
-Fields :- ['Name', 'ID No.', 'Year Level', 'Gender', 'Course']
+Fields :- ['ID No.', 'Name', 'Course', 'Year Level', 'Gender']
 1. Add New Student
 2. View Students
 3. Search Student
@@ -12,7 +12,7 @@ Fields :- ['Name', 'ID No.', 'Year Level', 'Gender', 'Course']
 import csv
 
 # Define global variables
-student_fields = ['Name', 'ID No.', 'Year Level', 'Gender', 'Course']
+student_fields = ['ID No.', 'Name', 'Course', 'Year Level', 'Gender']
 student_database = 'student data.csv'
 
 
@@ -59,7 +59,7 @@ def view_students():
         reader = csv.reader(f)
         for x in student_fields:
             print(x, end='\t |')
-        print("\n-----------------------------------------------------------------")
+        print("\n--------------------------------------------------------------------------------")
 
         for row in reader:
             for item in row:

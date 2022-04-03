@@ -53,7 +53,7 @@ class Student:
         def addStudent():
             with open('SIS.csv', "a", newline="") as file:
                 csvfile = csv.writer(file)
-                if StudentIDNumber.get() == "" or StudentFirstName.get() == "" or StudentMiddleInitial.get() == "" or StudentLastName.get() == "" or StudentYearLevel.get() == "" or StudentGender.get() == "" or StudentCourse.get() == "":
+                if StudentIDNumber.get() == "" or StudentLastName.get() == "" or StudentFirstName.get() == "" or StudentMiddleInitial.get() == "" or StudentCourse.get() == "" or StudentYearLevel.get() == "" or StudentGender.get() == "":
                     tkinter.messagebox.showinfo("Student Information System", "Please fill in the box.")
                 else:
                     studentID = StudentIDNumber.get()
@@ -128,7 +128,7 @@ class Student:
             else:
                 pass
 
-        ##### SEARCH STUDENT #####
+        ##### SEARCH A STUDENT #####
 
         def searchData():
             s = self.searchbar.get()
@@ -172,9 +172,9 @@ class Student:
             StudentLastName.set(values[1])
             StudentFirstName.set(values[2])
             StudentMiddleInitial.set(values[3])
-            StudentGender.set(values[4])
+            StudentCourse.set(values[4])
             StudentYearLevel.set(values[5])
-            StudentCourse.set(values[6])
+            StudentGender.set(values[6])
 
         ##### UPDATE STUDENT #####
 
@@ -188,7 +188,7 @@ class Student:
                     self.data[StudentIDNumber.get()] = {'Last Name': StudentLastName.get(),
                                                         'First Name': StudentFirstName.get(),
                                                         'Middle Initial': StudentMiddleInitial.get(),
-                                                        'COurse': StudentCourse.get(),
+                                                        'Course': StudentCourse.get(),
                                                         'Year Level': StudentYearLevel.get(),
                                                         'Gender': StudentGender.get()}
                     self.saveData()
@@ -329,7 +329,7 @@ class Student:
         temps = []
         with open('SIS.csv', "w", newline='') as update:
             fieldnames = ["Student ID Number", "Last Name", "First Name", "Middle Initial", "Course", "Year Level",
-                          "Year Level"]
+                          "Gender"]
             writer = csv.DictWriter(update, fieldnames=fieldnames, lineterminator='\n')
             writer.writeheader()
             for id, val in self.data.items():
@@ -344,3 +344,4 @@ if __name__ == '__main__':
     root = Tk()
     application = Student(root)
     root.mainloop()
+

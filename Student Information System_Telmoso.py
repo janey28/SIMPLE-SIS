@@ -47,7 +47,14 @@ class Student:
                                                            'Year Level': row["Year Level"],
                                                            'Gender': row["Gender"]}
             self.temp = self.data.copy()
-
+       
+        ###EXIT PROGRAM ###
+        def Exit():
+            Exit = tkinter.messagebox.askyesno("Student Information System","Are you sure you want to exit?")
+            if Exit > 0:
+                root.destroy()
+                return
+        
         ##### ADD STUDENT ####
 
         def addStudent():
@@ -282,9 +289,13 @@ class Student:
                               text='Edit Student', bg="#7f5539",fg = "snow", command=editData)
         self.btnEdit.place(x=40, y=515)
 
-        self.btnDelete = Button(self.root, pady=1, bd=4, font=('helvetica', 11, 'bold'), padx=24, width=8, text='Delete Student',
+        self.btnDelete = Button(self.root, pady=1, bd=4, font=('helvetica', 11, 'bold'), padx=28, width=8, text='Delete Student',
                                 bg="#7f5539", fg = "snow", command=deleteData)
-        self.btnDelete.place(x=120, y=565)
+        self.btnDelete.place(x=40, y=565)
+
+        self.btnExit = Button(self.root, pady=1, bd=4, font=('helvetica', 11, 'bold'), padx=24, width=8, text='Exit',
+                                bg="#7f5539", fg = "snow", command=Exit)
+        self.btnExit.place(x=200, y = 565)
 
         self.btnSearch = Button(self.root, bd=1, font=('helvetica', 12, 'bold'), width=10, text='Search', bg="#7f5539",fg = "snow",
                                 command=searchData)
